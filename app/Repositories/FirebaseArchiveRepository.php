@@ -13,10 +13,12 @@ class FirebaseArchiveRepository implements ArchiveRepositoryInterface
     public function __construct()
     {
         $path = '/home/dev/Documents/Team_ONAI_Devs-2_Laravel-2/storage/firebase/gestion-boutique-33c69-firebase-adminsdk-wi1ni-20c948c77d.json';
+        //$path = env('FIREBASE_CREDENTIALS');
 
         $factory = (new Factory)
             ->withServiceAccount($path)
             ->withDatabaseUri('https://gestion-boutique-33c69-default-rtdb.firebaseio.com');
+            //->withDatabaseUri(env('FIREBASE_DATABASE_URL'));
 
         $this->database = $factory->createDatabase();
     }
@@ -24,7 +26,7 @@ class FirebaseArchiveRepository implements ArchiveRepositoryInterface
     public function archiver(array $data)
     {
         Log::info('Archiving data to Firebase: ', $data);
-        try {
+        try {   
             $this->database->getReference('archives/' . date('Y-m-d'))->push($data);
         } catch (\Exception $e) {
             Log::error('Firebase archiving error: ' . $e->getMessage());

@@ -33,15 +33,15 @@ class Dette extends Model
         return $this->montant;
     }
 
-    // public function articles()
-    // {
-    //     return $this->hasMany(Article::class);  // Relation avec les articles liés à la dette
-    // }
-
-    // Relation many-to-many avec les articles via une table pivot
     public function articles()
     {
-        return $this->belongsToMany(Article::class, 'article_dette')
-                    ->withPivot('quantite', 'prix'); // Adaptez les colonnes du pivot selon vos besoins
+        return $this->hasMany(Article::class);  // Relation avec les articles liés à la dette
     }
+
+    // Relation many-to-many avec les articles via une table pivot
+    // public function articles()
+    // {
+    //     return $this->belongsToMany(Article::class, 'article_dette')
+    //                 ->withPivot('quantite', 'prix'); // Adaptez les colonnes du pivot selon vos besoins
+    // }
 }
