@@ -12,7 +12,7 @@ class ServeCommand extends Command
 
     public function handle()
     {
-        $port = config('server.port', 3000);
+        $port = config('server.port', 4000);
         $host = config('server.host', '127.0.0.1');
 
         $this->info("Laravel development server started on http://{$host}:{$port}");
