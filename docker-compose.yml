@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
+      - ./storage/firebase/firebase_encoded.key:/var/www/html/storage/firebase/firebase_encoded.key
       - .:/var/www/html
     ports:
       - "9000:9000"
