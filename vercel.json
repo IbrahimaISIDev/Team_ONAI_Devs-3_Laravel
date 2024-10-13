@@ -3,7 +3,7 @@
     "builds": [
         {
             "src": "api/index.php",
-            "use": "@vercel/php",
+            "use": "vercel-php@0.6.0",
             "config": {
                 "buildCommand": "curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-interaction --prefer-dist --optimize-autoloader"
             }
@@ -18,7 +18,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://gestionboutiquereact3.vercel.app/",
+        "APP_URL": "https://gestionshopreact.vercel.app/",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
